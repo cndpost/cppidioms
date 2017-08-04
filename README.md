@@ -12,8 +12,13 @@ The folder structure are as follows:
               titled "Sams teach yourself C++ in one hour a day" by Siddhartha Rao, 7th Edition, 
               following command will make the program compile and run: 
  
-               to compile and link:          g++ singleton.cpp -o singleton.cpp
+               to compile and link:          g++ singleton.cpp -o singleton
                to run:                        ./singleton
 
 
                comments: if you use gcc instead of g++ it may complain missing references to std library functions
+
+ singleton2 - singleton2.cpp. This single file have the singleton class that offers a thread feature to reserve a
+              seat index in an array if that seat is not taken. The std::mutex and std:lock_guard requires
+              compiler option --std=gnu++11 to work
+              to compile and link:            g++ singleton2.cpp -o singleton2 -std=gnu++11
