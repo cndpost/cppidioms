@@ -28,7 +28,7 @@ The folder structure are as follows:
               supporting the multithread launching of parallel function execution is the first step to port
               any go language based programs into C++ programs without major difficulty
 
- channel    - channel.cpp is a singleton class factory that offers similar functions of channels in go language 
+ channel    - channel.cpp is a singleton class that offers similar functions of channels in go language 
               that coordinates different goroutine in differnt threads. 
 
 
