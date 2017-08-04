@@ -23,3 +23,7 @@ The folder structure are as follows:
               compiler option --std=gnu++11 to work
 
               to compile and link:            g++ singleton2.cpp -o singleton2 -std=gnu++11
+
+ goroutine  - goroutine.cpp is a singleton class that offers similar functions of goroutine in go language. 
+              supporting the multithread launching of parallel function execution is the first step to port
+              any go language based programs into C++ programs without major difficulty
