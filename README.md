@@ -39,4 +39,4 @@ The folder structure are as follows:
               a book titled "Cracking the Coding Interview" by Gayle L McDowell. 5th edition. I also added a simple
               main function to do a basic test of it.
 
-              to compile and link:   g++ linkedlist -o linkedlist
+              to compile and link:   g++ linkedlist.cpp -o linkedlist
