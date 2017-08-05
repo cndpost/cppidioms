@@ -40,3 +40,15 @@ The folder structure are as follows:
               main function to do a basic test of it.
 
               to compile and link:   g++ linkedlist.cpp -o linkedlist
+
+
+ producerconsumer - producerconsumer.cpp. This single file has the C++ implementation of a producer consumer use case
+              where the producer generates input to a queue and the consumer consumer and extract the output from the
+              queue. The key is to demonstrate the pattern of using lock and mutex to coordinate two threads that share
+              the access to a queue data structure. This code is adopted from https://gist.github.com/iikuy/8115191.
+              We added the missing includes and following instruction shows that we also need to add pthread library
+              for the program to pass compile and link
+
+              to compile and link:  g++ producerconsumer.cpp -lpthread -o producerconsumer -std=gnu++11
+
+
