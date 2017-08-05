@@ -32,4 +32,11 @@ The folder structure are as follows:
               that coordinates different goroutine in differnt threads. 
 
 
+              to compile and link:   g++ channel.cpp -o channel
 
+ linkedlist  - linkedlist.cpp.  This single file have the C++ implementation of a linkedlist from scratch without
+              using the STL library for built-in linked list. The code was a rewrite based on the Java code of
+              a book titled "Cracking the Coding Interview" by Gayle L McDowell. 5th edition. I also added a simple
+              main function to do a basic test of it.
+
+              to compile and link:   g++ linkedlist -o linkedlist
