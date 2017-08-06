@@ -52,3 +52,19 @@ The folder structure are as follows:
               to compile and link:  g++ producerconsumer.cpp -lpthread -o producerconsumer -std=gnu++11
 
 
+stack -       stack.cpp.  This single file has the C++ implementation of the stack from scratch. The code is modified
+              from the Java code of "Cracking the coding interview" like the linkedlist implementation above.
+              pay attention to the commented cout line which may not output the stack elements as expected because
+              cout may not execute consecutive arguments from left to right but run from right to left.
+
+
+              to compile and link:           g++ stack.cpp -o stack -std=gnu++11
+
+queue -       queue.cpp. This single file has the C++ implementation of the queue from scrtach.  The code is modified
+              from the Java code of "Cracking the coding interview" like the linkedlist implementation above.
+              pay attention to the commented code in Node* top, bottom which declares bottom not as Node*; 
+              pay attention to the commented out cout lines. It may not output as expected since cout will output
+              the arguments from right to left, causing the dequeue calls are executed from right to left order.
+              
+              to compile and link:   g++ queue.cpp -o queue -std=gnu++11
+
