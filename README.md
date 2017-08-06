@@ -62,9 +62,10 @@ stack -       stack.cpp.  This single file has the C++ implementation of the sta
 
 queue -       queue.cpp. This single file has the C++ implementation of the queue from scrtach.  The code is modified
               from the Java code of "Cracking the coding interview" like the linkedlist implementation above.
-              pay attention to the commented code in Node* top, bottom which declares bottom not as Node*; 
-              pay attention to the commented out cout lines. It may not output as expected since cout will output
+              1) pay attention to the commented code in Node* top, bottom which declares bottom not as Node*; 
+              2) pay attention to the commented out cout lines. It may not output as expected since cout will output
               the arguments from right to left, causing the dequeue calls are executed from right to left order.
-              
+              3) pay attention to the difference between stack and queue. Queue need two pointers where stack just need one.
+
               to compile and link:   g++ queue.cpp -o queue -std=gnu++11
 
