@@ -69,3 +69,11 @@ queue -       queue.cpp. This single file has the C++ implementation of the queu
 
               to compile and link:   g++ queue.cpp -o queue -std=gnu++11
 
+
+DFT -         dft.cpp. This single file has the C++ implementation of a depth first traversal algorithm of a tree. It uses an unsorted vector
+              to store the children of each node. Each node stores a character as node data;
+
+BFT -         bft.cpp. This single file has the C++ implementation of a breadth first travelsal algorithm of a tree. It uses an unsorted vector
+              to store the children of each node.
+
+
