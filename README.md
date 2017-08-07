@@ -106,4 +106,10 @@ priorityqueu - priorityque.cpp.  This single file has the C++ implementation of 
         
               to compile and link:   g++ priorityqueue.cpp -o priorityqueue -std=gnu++11
 
+fibonacci    -  fibonacci.cpp.   This single file has the C++ implementation of a recursive fibonacci algorithm and a cached array is used to save
+		repeatitive calculations.  An alternative question related to fibonacci would look like: if you can walk one or two steps at a time
+                when you walk upstairs, how many posisble ways you can walk up to a floor with N steps ? 
+
+		to compile and link:   g++ fibonacci.cpp -o fibonacci -std=gnu++11
+
       
