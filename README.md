@@ -73,7 +73,37 @@ queue -       queue.cpp. This single file has the C++ implementation of the queu
 DFT -         dft.cpp. This single file has the C++ implementation of a depth first traversal algorithm of a tree. It uses an unsorted vector
               to store the children of each node. Each node stores a character as node data;
 
+
+              to compile and link:   g++ dft.cpp -o dft -std=gnu++11
+
+
+
 BFT -         bft.cpp. This single file has the C++ implementation of a breadth first travelsal algorithm of a tree. It uses an unsorted vector
               to store the children of each node.
 
 
+              to compile and link:   g++ bft.cpp -o bft -std=gnu++11
+
+
+
+BFT2  -       bft.cpp. This single file has the C++ implementation of a breadth first travelsal algorith of a tree. I uses an undsorted vector
+              to store the children of each node. The difference with above BFT is the BFT2 uses std::deque instead of std::queue. So the methods
+              are push_back(), top() and pop_front() instead of push(), top() and pop();
+
+
+              to compile and link:   g++ bft.cpp -o bft -std=gnu++11
+
+
+
+deque -       deque.cpp.  This single file has the C++ implementation of a dequeue from scratch. It is modified from above queue program which is a single 
+              header queue.
+
+
+              to compile and link:   g++ deque.cpp -o deque -std=gnu++11
+
+priorityqueu - priorityque.cpp.  This single file has the C++ implementation of a priority queue whose elements are integers.
+
+        
+              to compile and link:   g++ priorityqueue.cpp -o priorityqueue -std=gnu++11
+
+      
