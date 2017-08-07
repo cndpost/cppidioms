@@ -7,7 +7,7 @@ collections can grow indifinitely but the choice would be focused on those idiom
 
 The folder structure are as follows:
 
-  singleton - singleton.cpp. This single file have the singleton class and its
+  singleton - singleton.cpp. This single file has the singleton class and its
               calling main fucntions all in one file. It is modified from code smaple from a book
               titled "Sams teach yourself C++ in one hour a day" by Siddhartha Rao, 7th Edition, 
               following command will make the program compile and run: 
@@ -18,7 +18,7 @@ The folder structure are as follows:
 
                comments: if you use gcc instead of g++ it may complain missing references to std library functions
 
- singleton2 - singleton2.cpp. This single file have the singleton class that offers a thread feature to reserve a
+ singleton2 - singleton2.cpp. This single file has the singleton class that offers a thread feature to reserve a
               seat index in an array if that seat is not taken. The std::mutex and std:lock_guard requires
               compiler option --std=gnu++11 to work
 
@@ -34,7 +34,7 @@ The folder structure are as follows:
 
               to compile and link:   g++ channel.cpp -o channel
 
- linkedlist  - linkedlist.cpp.  This single file have the C++ implementation of a linkedlist from scratch without
+ linkedlist  - linkedlist.cpp.  This single file has the C++ implementation of a linkedlist from scratch without
               using the STL library for built-in linked list. The code was a rewrite based on the Java code of
               a book titled "Cracking the Coding Interview" by Gayle L McDowell. 5th edition. I also added a simple
               main function to do a basic test of it.
@@ -108,7 +108,7 @@ priorityqueu - priorityque.cpp.  This single file has the C++ implementation of 
 
 fibonacci    -  fibonacci.cpp.   This single file has the C++ implementation of a recursive fibonacci algorithm and a cached array is used to save
 		repeatitive calculations.  An alternative question related to fibonacci would look like: if you can walk one or two steps at a time
-                when you walk upstairs, how many posisble ways you can walk up to a floor with N steps ? 
+                when you walk upstairs, how many possible ways you can walk up to a floor with N steps ? 
 
 		to compile and link:   g++ fibonacci.cpp -o fibonacci -std=gnu++11
 
