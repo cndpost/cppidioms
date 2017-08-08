@@ -148,3 +148,18 @@ frameproducerconsumer - frameprodconsumer.cpp.  This single file has the C++ imp
                 The 3rd implementation in frameproducerconsumer3.cpp has the feature that each consumer has 
                 its own queue and gets a copy of the frame from producer, and producer will yield if any of the
                 consumer queue is full. 
+
+                For all these implementations, the memory for the data frames needs to be managed by the user of the classes. The consumer 
+                queues only the pointers to the data frames. A few suggestions are as follows:
+ 
+                1) for use case in high frequency (1MHz to 100Mhz)and small payload (1KB-50KB) digital signale processing frames, a global circular 
+                   buffer can be used and the payload data of each frames are deep copied to the queues of each subscribed consumers. If consumers 
+                   cannot catch up with the producer,the frames can be ignored and get overwritten. 
+
+                2) for use case in low frequency (0.1Hz - 1Hz) but large payload (1MB - 50MB) scanner image processing frames, a global circular buffer of full 
+                   payload can be used and only the pointers to each individual frames are copied to the queues of each subscribed consumers. The main()
+                   programmer needs to keep track of the references to the global circular buffer so its payload will not get overwritten if it is still
+                   referenced by any subscribing consumers.  
+                
+                3) for use case in medium frequency ( 10Hz - 30Hz) and medium payload (100KB - 300KB) video camera and CV frames. The scenario would be same
+                   as in above case 1).
