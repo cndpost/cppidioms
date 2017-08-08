@@ -37,9 +37,20 @@ class ThreadSafeQueue
                 	m_queue.pop();
 	}
 
+        T top_pop() { // atomic action to get the top and also immediatelt pop it,
+                      // so another consumer will not cut in between my top and pop action
+                std::lock_guard<std::mutex> lg(m_mutex);
+		T tmp = NULL;
+                if (!m_queue.empty()) {
+			tmp = m_queue.front();
+                        m_queue.pop();
+		}
+		return tmp;
+	}
+
         bool empty() {
                std::lock_guard<std::mutex> lg(m_mutex);
-               m_queue.empty();
+               return m_queue.empty();
 	}
 
         int size() {
@@ -107,7 +118,7 @@ struct Consumer
         	if (!container->safeContainer.empty())
             	{
                 	unsigned char *ptr_consumer_Image;
-                	ptr_consumer_Image = container->safeContainer.top(); //The front of the queue contain the pointer to the image data
+                	ptr_consumer_Image = container->safeContainer.top_pop(); //The front of the queue contain the pointer to the image data
                 	container->safeContainer.pop();
 
 #ifdef HAVE_OPENCV
@@ -145,7 +156,7 @@ struct Consumer2
         	if (!container->safeContainer.empty())
             	{
                 	unsigned char *ptr_consumer_Image;
-                	ptr_consumer_Image = container->safeContainer.top(); //The front of the queue contain the pointer to the image data
+                	ptr_consumer_Image = container->safeContainer.top_pop(); //The front of the queue contain the pointer to the image data
                 	container->safeContainer.pop();
 
 #ifdef HAVE_OPENCV
