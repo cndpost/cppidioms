@@ -1,3 +1,17 @@
+======== Code usage =========================
+
+The code has been able to compile on ubuntu 16.04 using following command:
+
+      g++ frameproducerconsumer.cpp -lpthread -o frameproducerconsumer -std=gnu++11
+
+To run it, run following command:
+
+     ./frameproducerconsumer
+
+
+================================ original requirement ========================
+
+
 A library to access and manipulate images asynchronously
 ---------------------------------------------------------
 

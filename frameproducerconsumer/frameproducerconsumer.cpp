@@ -102,22 +102,22 @@ struct Consumer
         while(true)
         {
            
-        // read next image from container
-        if (!container->safeContainer.empty())
-            {
-                unsigned char *ptr_consumer_Image;
-                ptr_consumer_Image = container->safeContainer.top(); //The front of the queue contain the pointer to the image data
-                container->safeContainer.pop();
+        	// read next image from container
+        	if (!container->safeContainer.empty())
+            	{
+                	unsigned char *ptr_consumer_Image;
+                	ptr_consumer_Image = container->safeContainer.top(); //The front of the queue contain the pointer to the image data
+                	container->safeContainer.pop();
 
 #ifdef HAVE_OPENCV
-                Mat image(400, 400, CV_8UC3);
-                image.data = ptr_consumer_Image;
+                	Mat image(400, 400, CV_8UC3);
+                	image.data = ptr_consumer_Image;
 
-                imshow("consumer image", image);
+                	imshow("consumer image", image);
 #else
-		printf("_"); // dummy fucntion for now
+			printf("_"); // dummy fucntion for now
 #endif
-            }       
+            	}       
         }
     }
 
@@ -140,22 +140,22 @@ struct Consumer2
         while(true)
         {
 
-        // read next image from container
-        if (!container->safeContainer.empty())
-            {
-                unsigned char *ptr_consumer_Image;
-                ptr_consumer_Image = container->safeContainer.top(); //The front of the queue contain the pointer to the image data
-                container->safeContainer.pop();
+        	// read next image from container
+        	if (!container->safeContainer.empty())
+            	{
+                	unsigned char *ptr_consumer_Image;
+                	ptr_consumer_Image = container->safeContainer.top(); //The front of the queue contain the pointer to the image data
+                	container->safeContainer.pop();
 
 #ifdef HAVE_OPENCV
-                Mat image(400, 400, CV_8UC3);
-                image.data = ptr_consumer_Image;
+                	Mat image(400, 400, CV_8UC3);
+                	image.data = ptr_consumer_Image;
 
-                imshow("consumer image", image);
+                	imshow("consumer image", image);
 #else
-                printf("="); // dummy fucntion for now
+                	printf("="); // dummy fucntion for now
 #endif
-            }
+            	}
         }
     }
 
