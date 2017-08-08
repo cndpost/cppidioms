@@ -7,11 +7,36 @@
 #include <opencv2/core.hpp>
 #include <opencv2/imgproc.hpp>
 
-Mutex mu;
+
+template <class T>
+class ThreadSafeQueue
+{
+	std::queue<T> m_queue;
+	std::mutex m_mutex;
+
+	void push(const T &ba){
+		std::lock_guard<std::mutext> lg(&m_mutex);
+		m_queue.push(ba);
+	};
+	
+	T top () {
+               	std::lock_guard<std::mutext> lg(&m_mutex);
+		return m_queu.front();
+	}
+
+	void pop() {
+ 		std::lock_guard<std::mutext> lg(&m_mutex);
+
+                m_queu.pop();
+
+
+	}
+}
+
 
 struct ThreadSafeContainer
 { 
-    queue<unsigned char*> safeContainer;
+    ThreadSafeQueue<unsigned char*> safeContainer;
 
 };
 
@@ -30,9 +55,7 @@ struct Producer
             // store image in container
             Mat image(400, 400, CV_8UC3, Scalar(10, 100,180) );
             unsigned char *pt_src = image.data;
-            mu.lock();
             container->safeContainer.push(pt_src);
-            mu.unlock();
         }
     }
 
@@ -55,11 +78,10 @@ struct Consumer
         while(true)
         {
             // read next image from container
-        mu.lock();
         if (!container->safeContainer.empty())
             {
                 unsigned char *ptr_consumer_Image;
-                ptr_consumer_Image = container->safeContainer.front(); //The front of the queue contain the pointer to the image data
+                ptr_consumer_Image = container->safeContainer.top(); //The front of the queue contain the pointer to the image data
                 container->safeContainer.pop();
 
                 Mat image(400, 400, CV_8UC3);
@@ -68,7 +90,6 @@ struct Consumer
                 imshow("consumer image", image);
                 waitKey(33);
             }       
-            mu.unlock();
         }
     }
 
