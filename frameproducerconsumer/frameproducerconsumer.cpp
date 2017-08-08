@@ -118,8 +118,7 @@ struct Consumer
         	if (!container->safeContainer.empty())
             	{
                 	unsigned char *ptr_consumer_Image;
-                	ptr_consumer_Image = container->safeContainer.top_pop(); //The front of the queue contain the pointer to the image data
-                	container->safeContainer.pop();
+                	ptr_consumer_Image = container->safeContainer.top_pop(); //Get the front of the queue which contain the pointer to the image data, also atomically remove it from the queue
 
 #ifdef HAVE_OPENCV
                 	Mat image(400, 400, CV_8UC3);
@@ -156,8 +155,7 @@ struct Consumer2
         	if (!container->safeContainer.empty())
             	{
                 	unsigned char *ptr_consumer_Image;
-                	ptr_consumer_Image = container->safeContainer.top_pop(); //The front of the queue contain the pointer to the image data
-                	container->safeContainer.pop();
+                	ptr_consumer_Image = container->safeContainer.top_pop(); //Get the front of the queue which contain the pointer to the image data, also atomically remove it from the queue
 
 #ifdef HAVE_OPENCV
                 	Mat image(400, 400, CV_8UC3);
