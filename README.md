@@ -112,4 +112,39 @@ fibonacci    -  fibonacci.cpp.   This single file has the C++ implementation of 
 
 		to compile and link:   g++ fibonacci.cpp -o fibonacci -std=gnu++11
 
-      
+mergesort     - mergesort.cpp.  This single file has the C++ implementation of a mergesort algorithm. Code adopted from a book titled "Cracking the code
+               Interview" by Gayle Laakmann McDowell, 5th edition.
+
+quicksort     - quicksort.cpp.  This single file has the C++ implementation of a quicksort algorithm. Code adopted from a book titled "Cracking the code
+               Interview" by Gayle Laakmann McDowell, 5th edition.
+
+binarysearch     - binarysearch.cpp.  This single file has the C++ implementation of a binary algorithm. Code adopted from a book titled "Cracking the code
+               Interview" by Gayle Laakmann McDowell, 5th edition.
+
+
+
+frameproducerconsumer - fprodconsumer.cpp.  This single has the C++ implementation of a more sophisticated producer 
+		consumer scenario: the producer, once primed, will continuously capturing the images from a scanner and pas
+                sed in as a frame data buffer, there will be no shared queues as in the previous simple producerconsumer 
+                case, instead here the frames are immediatly copied into three consumer queues: one is a GUI display, one 
+                is a file saving directory, and one is an image processing routine.
+
+               the original requirement is in a readme.txt file in the project folder. In our test we do not have a 
+               physical scanner connected so we will simulate the scanner driver using a file reader to fetch the images
+               from the folder 'images'. We will then save it to another folder called 'savedImages', display it on Windows
+               as the images updated, and pass the image data to a dummy processing routine called imageprocessor() which
+               will compress the image into 1/2 x 1/2 size of the original size and write the results into a folder called 
+               'compressedImages'. 
+ 
+               to compile and link:   g++ fprodconsumer.cpp -o prodconsumer -std=gnu++11
+
+               to run the program in place:   ./fprodconsumer images savedImages compressedImages
+
+               the program will continuously reading the images cyclically from folder 'images' and to stop the process
+               just press Ctl_C key
+
+               as an cppidioms project, we try not to use anything depend on libraries other than standard libraries, so
+               the first phase of this project will not have GUI and Image processing fucntion. In another project outside
+               the cppidioms we will have it as a completely working application at upper folder level, in a later time.
+
+
