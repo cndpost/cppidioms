@@ -49,6 +49,8 @@ struct ThreadSafeContainer
 
 };
 
+char byteArray[10000];
+
 struct Producer
 {
     Producer(std::shared_ptr<ThreadSafeContainer> c) : container(c)
@@ -67,7 +69,7 @@ struct Producer
             unsigned char *pt_src = image.data;
 
 #else
-	    unsigned char *pt_src = (unsigned char *)malloc(10000);
+	    unsigned char *pt_src = (unsigned char *)&byteArray[0];//malloc(10000);
 #endif
             container->safeContainer.push(pt_src);
         }
