@@ -59,6 +59,7 @@ char byteArray[10000];
 #define MAXLOOP 1000
 struct Producer
 {
+
     Producer(std::shared_ptr<ThreadSafeContainer> c) : container(c)
     {
 
@@ -66,6 +67,7 @@ struct Producer
 
     void run()
     {
+
         while(true)
         {
             if (container->safeContainer.size() >= MAXLOOP) {
@@ -90,10 +92,12 @@ struct Producer
     }
 
     std::shared_ptr<ThreadSafeContainer> container;
+
 };
 
 struct Consumer
 {
+
     Consumer(std::shared_ptr<ThreadSafeContainer> c) : container(c)
     {
 
@@ -105,9 +109,10 @@ struct Consumer
 
     void run()
     {   
+
         while(true)
         {
-           
+       
         // if we are ahead of producer, wait a cycle
         if (container->safeContainer.empty())
 	{
@@ -138,10 +143,12 @@ struct Consumer
     }
 
     std::shared_ptr<ThreadSafeContainer> container;
+
 };
 
 struct Consumer2
 {
+
     Consumer2(std::shared_ptr<ThreadSafeContainer> c) : container(c)
     {
 
@@ -184,8 +191,8 @@ struct Consumer2
             std::this_thread::yield();
         }
     }
-
     std::shared_ptr<ThreadSafeContainer> container;
+
 };
 
 
