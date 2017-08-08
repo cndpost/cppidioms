@@ -123,29 +123,25 @@ binarysearch     - binarysearch.cpp.  This single file has the C++ implementatio
 
 
 
-frameproducerconsumer - fprodconsumer.cpp.  This single file has the C++ implementation of a more sophisticated producer 
-		consumer scenario: the producer will continuously capturing the images from a scanner and pass it
-        	in as a frame data buffer, there will be no shared queues as in the previous simple producerconsumer 
-                case, instead here the frames are immediatly copied into three consumer queues: one is a GUI display, one 
-                is a file saving directory, and one is an image processing routine. Queues are implemented as thread safe
-                queues.
+frameproducerconsumer - frameprodconsumer.cpp.  This single file has the C++ implementation of a more sophisticated producer 
+		consumer scenario. It can be used a basic library to drive more specific producer and consumer algorithms.
 
-               	the original requirement is in a readme.txt file in the project folder. In our test we do not have a 
-               	physical scanner connected so we will simulate the scanner driver using a file reader to fetch the images
-               	from the folder 'images'. We will then save it to another folder called 'savedImages', display it on Windows
-               	as the images updated, and pass the image data to a dummy processing routine called imageprocessor() which
-               	will compress the image into 1/2 x 1/2 size of the original size and displays the image in another window.  
+               	the original use case requirement is in the readme.txt file in the project folder. 
+
+                as a cppidioms project, we try not to use anything depend on libraries other than standard libraries, so
+                the first phase of this project we have #ifdef out the GUI and Image processing functions. The producer will print a
+                '+' to show its sign of life, the first consumer will print a '-' to show its sign of life.  The 2nd consumer will
+                print a '=' to show its sign of life.
+
+                In the future phase we will use OpenCV and Qt libraries to make it a really demoable image processing program.
+
  
                	to compile and link:   g++ frameprodconsumer.cpp -lpthread -o frameprodconsumer -std=gnu++11
 
                	to run the program in place:   ./frameprodconsumer  
 
-               	the program will continuously read the images cyclically from folder 'images' and to stop the process
-               	just press Ctl_C key
-
-               	as a cppidioms project, we try not to use anything depend on libraries other than standard libraries, so
-               	the first phase of this project will not have GUI and Image processing functions. In the 2nd phase we will
-               	use OpenCV and Qt libraries to make it a really demoable program
-
-
+               	the program will continuously run. To stop the procese just press Ctl_C key
+                
+                there is a slightly different imlementation in frameproducerconsumer2.cpp where we imposed a max size of the queue
+                and the producer will yield to consumers when that queue max size is reached. 
 

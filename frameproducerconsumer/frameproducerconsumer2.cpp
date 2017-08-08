@@ -38,7 +38,7 @@ class ThreadSafeQueue
 
         bool empty() {
                std::lock_guard<std::mutex> lg(m_mutex);
-               m_queue.empty();
+               return m_queue.empty();
 	}
 
         int size() {
@@ -68,6 +68,11 @@ struct Producer
     {
         while(true)
         {
+            if (container->safeContainer.size() >= MAXLOOP) {
+                std::this_thread::yield();
+                //printf(" ");
+                continue;
+	    }
 
             // grab image from camera
             // store image in container
@@ -80,6 +85,7 @@ struct Producer
 	    printf("+");//dummy action for now
 #endif
             container->safeContainer.push(pt_src);
+            std::this_thread::yield();
 	}
     }
 
@@ -102,7 +108,16 @@ struct Consumer
         while(true)
         {
            
+        // if we are ahead of producer, wait a cycle
+        if (container->safeContainer.empty())
+	{
+		std::this_thread::yield();
+               // printf(" "); 
+		continue;
+	};
+
         // read next image from container
+
         if (!container->safeContainer.empty())
             {
                 unsigned char *ptr_consumer_Image;
@@ -117,7 +132,8 @@ struct Consumer
 #else
 		printf("_"); // dummy fucntion for now
 #endif
-            }       
+            }    
+            std::this_thread::yield();   
         }
     }
 
@@ -140,7 +156,16 @@ struct Consumer2
         while(true)
         {
 
-        // read next image from container
+       // if we are ahead of producer, wait a cycle
+        if (container->safeContainer.empty())
+        {
+                std::this_thread::yield();
+                printf(" ");
+                continue;
+        };
+
+
+            // read next image from container
         if (!container->safeContainer.empty())
             {
                 unsigned char *ptr_consumer_Image;
@@ -156,6 +181,7 @@ struct Consumer2
                 printf("="); // dummy fucntion for now
 #endif
             }
+            std::this_thread::yield();
         }
     }
 
