@@ -123,28 +123,29 @@ binarysearch     - binarysearch.cpp.  This single file has the C++ implementatio
 
 
 
-frameproducerconsumer - fprodconsumer.cpp.  This single has the C++ implementation of a more sophisticated producer 
-		consumer scenario: the producer, once primed, will continuously capturing the images from a scanner and pas
-                sed in as a frame data buffer, there will be no shared queues as in the previous simple producerconsumer 
+frameproducerconsumer - fprodconsumer.cpp.  This single file has the C++ implementation of a more sophisticated producer 
+		consumer scenario: the producer will continuously capturing the images from a scanner and pass it
+        	in as a frame data buffer, there will be no shared queues as in the previous simple producerconsumer 
                 case, instead here the frames are immediatly copied into three consumer queues: one is a GUI display, one 
-                is a file saving directory, and one is an image processing routine.
+                is a file saving directory, and one is an image processing routine. Queues are implemented as thread safe
+                queues.
 
-               the original requirement is in a readme.txt file in the project folder. In our test we do not have a 
-               physical scanner connected so we will simulate the scanner driver using a file reader to fetch the images
-               from the folder 'images'. We will then save it to another folder called 'savedImages', display it on Windows
-               as the images updated, and pass the image data to a dummy processing routine called imageprocessor() which
-               will compress the image into 1/2 x 1/2 size of the original size and write the results into a folder called 
-               'compressedImages'. 
+               	the original requirement is in a readme.txt file in the project folder. In our test we do not have a 
+               	physical scanner connected so we will simulate the scanner driver using a file reader to fetch the images
+               	from the folder 'images'. We will then save it to another folder called 'savedImages', display it on Windows
+               	as the images updated, and pass the image data to a dummy processing routine called imageprocessor() which
+               	will compress the image into 1/2 x 1/2 size of the original size and displays the image in another window.  
  
-               to compile and link:   g++ fprodconsumer.cpp -o prodconsumer -std=gnu++11
+               	to compile and link:   g++ fprodconsumer.cpp -o prodconsumer -std=gnu++11
 
-               to run the program in place:   ./fprodconsumer images savedImages compressedImages
+               	to run the program in place:   ./fprodconsumer images savedImages 
 
-               the program will continuously reading the images cyclically from folder 'images' and to stop the process
-               just press Ctl_C key
+               	the program will continuously read the images cyclically from folder 'images' and to stop the process
+               	just press Ctl_C key
 
-               as an cppidioms project, we try not to use anything depend on libraries other than standard libraries, so
-               the first phase of this project will not have GUI and Image processing fucntion. In another project outside
-               the cppidioms we will have it as a completely working application at upper folder level, in a later time.
+               	as a cppidioms project, we try not to use anything depend on libraries other than standard libraries, so
+               	the first phase of this project will not have GUI and Image processing functions. In the 2nd phase we will
+               	use OpenCV and Qt libraries to make it a really demoable program
+
 
 
