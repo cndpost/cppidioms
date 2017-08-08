@@ -136,9 +136,9 @@ frameproducerconsumer - fprodconsumer.cpp.  This single file has the C++ impleme
                	as the images updated, and pass the image data to a dummy processing routine called imageprocessor() which
                	will compress the image into 1/2 x 1/2 size of the original size and displays the image in another window.  
  
-               	to compile and link:   g++ fprodconsumer.cpp -o prodconsumer -std=gnu++11
+               	to compile and link:   g++ frameprodconsumer.cpp -lpthread -o frameprodconsumer -std=gnu++11
 
-               	to run the program in place:   ./fprodconsumer images savedImages 
+               	to run the program in place:   ./frameprodconsumer  
 
                	the program will continuously read the images cyclically from folder 'images' and to stop the process
                	just press Ctl_C key

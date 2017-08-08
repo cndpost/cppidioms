@@ -2,36 +2,45 @@
 #include <thread>
 #include <memory>
 #include <queue>
+#include <mutex>
+
+#ifdef HAVE_OPENCV
 
 #include <opencv2/highgui.hpp>
 #include <opencv2/core.hpp>
 #include <opencv2/imgproc.hpp>
+#else
 
+
+#endif
+using namespace std;
 
 template <class T>
 class ThreadSafeQueue
 {
 	std::queue<T> m_queue;
 	std::mutex m_mutex;
-
+        public:
 	void push(const T &ba){
-		std::lock_guard<std::mutext> lg(&m_mutex);
+		std::lock_guard<std::mutex> lg(m_mutex);
 		m_queue.push(ba);
 	};
 	
 	T top () {
-               	std::lock_guard<std::mutext> lg(&m_mutex);
-		return m_queu.front();
+               	std::lock_guard<std::mutex> lg(m_mutex);
+		return m_queue.front();
 	}
 
 	void pop() {
- 		std::lock_guard<std::mutext> lg(&m_mutex);
-
-                m_queu.pop();
-
-
+ 		std::lock_guard<std::mutex> lg(m_mutex);
+                m_queue.pop();
 	}
-}
+
+        bool empty() {
+               std::lock_guard<std::mutex> lg(m_mutex);
+               m_queue.empty();
+	}
+};
 
 
 struct ThreadSafeContainer
@@ -53,8 +62,13 @@ struct Producer
         {
             // grab image from camera
             // store image in container
+#ifdef HAVE_OPENCV
             Mat image(400, 400, CV_8UC3, Scalar(10, 100,180) );
             unsigned char *pt_src = image.data;
+
+#else
+	    unsigned char *pt_src = (unsigned char *)malloc(10000);
+#endif
             container->safeContainer.push(pt_src);
         }
     }
@@ -84,11 +98,15 @@ struct Consumer
                 ptr_consumer_Image = container->safeContainer.top(); //The front of the queue contain the pointer to the image data
                 container->safeContainer.pop();
 
+#ifdef HAVE_OPENCV
                 Mat image(400, 400, CV_8UC3);
                 image.data = ptr_consumer_Image;
 
                 imshow("consumer image", image);
-                waitKey(33);
+#else
+		printf(".");
+#endif
+              //  sleep(100);
             }       
         }
     }
