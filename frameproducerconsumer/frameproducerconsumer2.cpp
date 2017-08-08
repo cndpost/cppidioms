@@ -33,7 +33,8 @@ class ThreadSafeQueue
 
 	void pop() {
  		std::lock_guard<std::mutex> lg(m_mutex);
-                m_queue.pop();
+                if (!m_queue.empty())
+                	m_queue.pop();
 	}
 
         bool empty() {
