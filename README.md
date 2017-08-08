@@ -145,3 +145,6 @@ frameproducerconsumer - frameprodconsumer.cpp.  This single file has the C++ imp
                 there is a slightly different imlementation in frameproducerconsumer2.cpp where we imposed a max size of the queue
                 and the producer will yield to consumers when that queue max size is reached. 
 
+                The 3rd implementation in frameproducerconsumer3.cpp has the feature that each consumer has 
+                its own queue and gets a copy of the frame from producer, and producer will yield if any of the
+                consumer queue is full. 
