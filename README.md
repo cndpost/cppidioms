@@ -70,33 +70,33 @@ queue -       queue.cpp. This single file has the C++ implementation of the queu
               to compile and link:   g++ queue.cpp -o queue -std=gnu++11
 
 
-DFT -         dft.cpp. This single file has the C++ implementation of a depth first traversal algorithm of a tree. It uses an unsorted vector
-              to store the children of each node. Each node stores a character as node data;
+DFT -         dft.cpp. This single file has the C++ implementation of a depth first traversal algorithm of a tree. It uses an 
+              unsorted vector to store the children of each node. Each node stores a character as node data;
 
 
               to compile and link:   g++ dft.cpp -o dft -std=gnu++11
 
 
 
-BFT -         bft.cpp. This single file has the C++ implementation of a breadth first travelsal algorithm of a tree. It uses an unsorted vector
-              to store the children of each node.
+BFT -         bft.cpp. This single file has the C++ implementation of a breadth first travelsal algorithm of a tree. It uses an 
+              unsorted vector to store the children of each node.
 
 
               to compile and link:   g++ bft.cpp -o bft -std=gnu++11
 
 
 
-BFT2  -       bft.cpp. This single file has the C++ implementation of a breadth first travelsal algorith of a tree. I uses an undsorted vector
-              to store the children of each node. The difference with above BFT is the BFT2 uses std::deque instead of std::queue. So the methods
-              are push_back(), top() and pop_front() instead of push(), top() and pop();
+BFT2  -       bft.cpp. This single file has the C++ implementation of a breadth first travelsal algorith of a tree. I uses an undsorted 
+              vector to store the children of each node. The difference with above BFT is the BFT2 uses std::deque instead of std::queue. 
+              So the methods are push_back(), top() and pop_front() instead of push(), top() and pop();
 
 
               to compile and link:   g++ bft.cpp -o bft -std=gnu++11
 
 
 
-deque -       deque.cpp.  This single file has the C++ implementation of a dequeue from scratch. It is modified from above queue program which is a single 
-              header queue.
+deque -       deque.cpp.  This single file has the C++ implementation of a dequeue from scratch. It is modified from above queue program 
+              which is a single header queue.
 
 
               to compile and link:   g++ deque.cpp -o deque -std=gnu++11
@@ -106,20 +106,20 @@ priorityqueu - priorityque.cpp.  This single file has the C++ implementation of 
         
               to compile and link:   g++ priorityqueue.cpp -o priorityqueue -std=gnu++11
 
-fibonacci    -  fibonacci.cpp.   This single file has the C++ implementation of a recursive fibonacci algorithm and a cached array is used to save
-		repeatitive calculations.  An alternative question related to fibonacci would look like: if you can walk one or two steps at a time
-                when you walk upstairs, how many possible ways you can walk up to a floor with N steps ? 
+fibonacci    -  fibonacci.cpp.   This single file has the C++ implementation of a recursive fibonacci algorithm and a cached array is used to 
+                save repeatitive calculations.  An alternative question related to fibonacci would look like: if you can walk one or two steps 
+                at a time when you walk upstairs, how many possible ways you can walk up to a floor with N steps ? 
 
 		to compile and link:   g++ fibonacci.cpp -o fibonacci -std=gnu++11
 
-mergesort     - mergesort.cpp.  This single file has the C++ implementation of a mergesort algorithm. Code adopted from a book titled "Cracking the code
-               Interview" by Gayle Laakmann McDowell, 5th edition.
+mergesort     - mergesort.cpp.  This single file has the C++ implementation of a mergesort algorithm. Code adopted from a book titled "Cracking 
+               the code Interview" by Gayle Laakmann McDowell, 5th edition.
 
-quicksort     - quicksort.cpp.  This single file has the C++ implementation of a quicksort algorithm. Code adopted from a book titled "Cracking the code
-               Interview" by Gayle Laakmann McDowell, 5th edition.
+quicksort     - quicksort.cpp.  This single file has the C++ implementation of a quicksort algorithm. Code adopted from a book titled "Cracking 
+               the code Interview" by Gayle Laakmann McDowell, 5th edition.
 
-binarysearch     - binarysearch.cpp.  This single file has the C++ implementation of a binary algorithm. Code adopted from a book titled "Cracking the code
-               Interview" by Gayle Laakmann McDowell, 5th edition.
+binarysearch  - binarysearch.cpp.  This single file has the C++ implementation of a binary algorithm. Code adopted from a book titled "Cracking 
+               the code Interview" by Gayle Laakmann McDowell, 5th edition.
 
 
 
@@ -152,19 +152,21 @@ frameproducerconsumer - frameprodconsumer.cpp.  This single file has the C++ imp
                 For all these implementations, the memory for the data frames needs to be managed by the user of the classes. The consumer 
                 queues only the pointers to the data frames. A few memory policy suggestions are as follows:
  
-                1) for use case in high frequency (1MHz to 100Mhz) and small payload (1KB-50KB) digital signale processing frames, the producer do not
-                   yield for consumers and do not keep track of historical data. Every frame data captured by producer from source device are deep copied 
-                   to the circular buffer of each subscribed consumers. If consumers cannot catch up with the producer, those frames simply get overwritten.
+                1) for use case in high frequency (1MHz to 100Mhz) and small payload (1KB-50KB) digital signale processing frames, the producer 
+                   do not yield for consumers and do not keep track of historical data. Every frame data captured by producer from source device 
+                   are deep copied to the circular buffer of each subscribed consumers. If consumers cannot catch up with the producer, those 
+                   frames simply get overwritten.
                    
 
-                2) for use case in low frequency (0.1Hz - 1Hz) but large payload (1MB - 50MB) scanner image processing frames, a global circular buffer of full 
-                   payload can be used to keep the full frame data, and the pointers to these individual frames are copied to the queues of each subscribed 
-                   consumers. The main() programmer needs to keep track of the references to the global queue buffer so its payload will not get overwritten 
-                   if it is still referenced by any subscribing consumers. Producer has to yield if no space available in the global circular buffer and the
-                   data cannot be overwritten. If we want to keep a small in-memory foot print, the global circular buffer can be replaced by a file folder
-                   where the producer writes frame data to the file folder and the consumers just read from the file back to memory for processing
+                2) for use case in low frequency (0.1Hz - 1Hz) but large payload (1MB - 50MB) scanner image processing frames, a global circular 
+                   buffer of full payload can be used to keep the full frame data, and the pointers to these individual frames are copied to the
+                   queues of each subscribed consumers. The main() programmer needs to keep track of the references to the global queue buffer 
+                   so its payload will not get overwritten if it is still referenced by any subscribing consumers. Producer has to yield if no 
+                   space available in the global circular buffer and the data cannot be overwritten. If we want to keep a small in-memory foot 
+                   print, the global circular buffer can be replaced by a file folder where the producer writes frame data to the file folder 
+                   and the consumers just read from the file back to memory for processing
                 
-                3) for use case in medium frequency ( 10Hz - 30Hz) and medium payload (100KB - 300KB) video camera and CV frames. The scenario would be same
-                   as in above case 1). The CV application does not matter if one or two frames are lost and it will not affect the recognition of objects
-                   or faces.
+                3) for use case in medium frequency ( 10Hz - 30Hz) and medium payload (100KB - 300KB) video camera and CV frames. The scenario 
+                   would be same as in above case 1). The CV application does not matter if one or two frames are lost and it will not affect 
+                   the recognition of objects or faces.
 
