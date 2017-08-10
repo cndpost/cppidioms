@@ -121,7 +121,8 @@ quicksort     - quicksort.cpp.  This single file has the C++ implementation of a
 binarysearch  - binarysearch.cpp.  This single file has the C++ implementation of a binary algorithm. Code adopted from a book titled "Cracking 
                the code Interview" by Gayle Laakmann McDowell, 5th edition.
 
-
+binaryrecursivesearch - binaryrecursivesearch.cpp.  This single file has the C++ implementation of a bianry recursive search algorithm. Code 
+               adopted from a book titled "Cracking the code interview" By Gaule Laakman McDowell, 5th edition.
 
 frameproducerconsumer - frameprodconsumer.cpp.  This single file has the C++ implementation of a more sophisticated producer 
 		consumer scenario. It can be used a basic library to drive more specific producer and consumer algorithms.
