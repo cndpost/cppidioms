@@ -34,13 +34,24 @@ void merge(int arrayLeft[], int helper[],  int low, int middle, int high)
 		current++;
 	}
 
-	//hit following case must be iRight > high
+	//hit following case must be iRight > high but still have iLeft <= middle, i.e. right side used but left side not yet
 	if ( iLeft <= middle) {
 	        for (int i=iLeft; i <= middle; i++) {
 			arrayLeft[current] = helper[i];
 			current++;
 		}
 	}
+
+        //is it still need to consider a scenario where iLfet > middle but iRight <= high ? i.e. left side used but right side not yet
+        //such as following code ?   It is safe logically to do so, but not necessary because helper was originally from arrayLeft
+ 	if ( iRight <= high) {
+                for (int i=iRight; i <= high; i++) {
+                        arrayLeft[current] = helper[i];
+                        current++;
+                }
+        }
+
+
 }
 
 void mergesort(int dataArray[], int N)
