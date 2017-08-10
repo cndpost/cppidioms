@@ -7,7 +7,7 @@ void mergesort(int arrayLeft[], int helper[], int left, int right)
 	if ( left < right ) {
 		int middle = (left+right)/2;
 		mergesort(arrayLeft, helper, left, middle);
-        	mergesort(helper, helper, middle+1, right);
+        	mergesort(arrayLeft, helper, middle+1, right);
         	merge(arrayLeft, helper, left, middle, right);
 	}
 }
@@ -16,28 +16,30 @@ void merge(int arrayLeft[], int helper[],  int low, int middle, int high)
 {
   	int iLeft=low;
   	int iRight = middle+1;
-        int N = high - low+1;
-
-        for(int i= low; i < high; i++) {
+	int current = low;
+        for(int i= low; i <= high; i++) {
 		helper[i] = arrayLeft[i];
 	}
 
-        for(int i=0; i< N; i++ ){
-
-	  	if (arrayLeft[iLeft] < helper[iRight])
+	while( (iLeft <= middle) && (iRight <= high)) { 
+	  	if (helper[iLeft] <= helper[iRight]) {
+			arrayLeft[current] = helper[iLeft];
     			iLeft++;
+		}
   		else {
-        		arrayLeft[iLeft] = helper[iRight];        
+	       		arrayLeft[current] = helper[iRight];        
 			iRight++;
-        		iLeft++;
+        	
  		}
-
+		current++;
 	}
 
-        for (int i=iRight; i < high; i++) {
-		arrayLeft[iLeft] = helper[i];
-		iLeft++;
-
+	//hit following case must be iRight > high
+	if ( iLeft <= middle) {
+	        for (int i=iLeft; i <= middle; i++) {
+			arrayLeft[current] = helper[i];
+			current++;
+		}
 	}
 }
 
@@ -51,7 +53,15 @@ int main()
 {
 	int dataArray[] = {3,4,7,2,1,5,8,6};
         int N = 8;
+        printf("before sort\n");
+	for (int i=0; i < N; i++){
+                printf("%d ", dataArray[i]);
+
+        }
+        printf("\n");
+
 	mergesort(dataArray, N);
+        printf("after sort\n");
 	for (int i=0; i < N; i++){
 		printf("%d ", dataArray[i]);
 
