@@ -171,3 +171,7 @@ frameproducerconsumer - frameprodconsumer.cpp.  This single file has the C++ imp
                    would be same as in above case 1). The CV application does not matter if one or two frames are lost and it will not affect 
                    the recognition of objects or faces.
 
+                the original base code that was not working is from this source:
+
+                https://stackoverflow.com/questions/31294267/producer-consumer-based-multi-threading-for-image-processing
+
