@@ -147,6 +147,7 @@ struct DisplayConsumer
 
     void run()
     {   
+        StopRequested = false;
 
         while(true)
         {
@@ -175,6 +176,9 @@ struct DisplayConsumer
 #endif
             	}    
             	std::this_thread::yield();   
+            	if (StopRequested)
+                	break;
+
         }
     }
 
@@ -204,6 +208,9 @@ struct FileSaveConsumer
 
     void run()
     {
+
+        StopRequested = false;
+
         while(true)
         {
 
@@ -231,6 +238,9 @@ struct FileSaveConsumer
 #endif
             	}
             	std::this_thread::yield();
+            	if (StopRequested)
+                	break;
+
         }
     }
     std::shared_ptr<ThreadSafeContainer> container;
@@ -260,6 +270,9 @@ struct ImageProcessingConsumer
 
     void run()
     {
+
+        StopRequested = false;
+
         while(true)
         {
 
@@ -287,8 +300,12 @@ struct ImageProcessingConsumer
 #endif
                 }
                 std::this_thread::yield();
+            	if (StopRequested)
+                	break;
+
         }
     }
+
     std::shared_ptr<ThreadSafeContainer> container;
     bool StopRequested;
 
