@@ -150,6 +150,9 @@ frameproducerconsumer - frameprodconsumer.cpp.  This single file has the C++ imp
                 its own queue and gets a copy of the frame from producer, and producer will yield if any of the
                 consumer queue is full. 
 
+                The 4th implementation in frameproducerconsumer4.cpp added a Stop() method to producer and consumer to allow callers
+                to stop the producer or consumer. The code otherwise are taken from the above 3rd implementation.
+
                 For all these implementations, the memory for the data frames needs to be managed by the user of the classes. The consumer 
                 queues only the pointers to the data frames. A few memory policy suggestions are as follows:
  
