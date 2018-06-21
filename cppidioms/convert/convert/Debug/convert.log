@@ -1,15 +1,17 @@
 ﻿  convert.cpp
-c:\github\cndpost\cppidioms\convert\convert\convert.cpp(88): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\github\cndpost\cppidioms\convert\convert\convert.cpp(91): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\github\cndpost\cppidioms\convert\convert\convert.cpp(94): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\github\cndpost\cppidioms\convert\convert\convert.cpp(97): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\github\cndpost\cppidioms\convert\convert\convert.cpp(100): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\github\cndpost\cppidioms\convert\convert\convert.cpp(103): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\github\cndpost\cppidioms\convert\convert\convert.cpp(106): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\github\cndpost\cppidioms\convert\convert\convert.cpp(109): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\github\cndpost\cppidioms\convert\convert\convert.cpp(112): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\github\cndpost\cppidioms\convert\convert\convert.cpp(115): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\github\cndpost\cppidioms\convert\convert\convert.cpp(120): warning C4305: 'return': truncation from 'double' to 'float'
-c:\github\cndpost\cppidioms\convert\convert\convert.cpp(127): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-c:\github\cndpost\cppidioms\convert\convert\convert.cpp(135): warning C4715: 'convert2': not all control paths return a value
+c:\github\cndpost\cppidioms\convert\convert\convert.cpp(98): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\github\cndpost\cppidioms\convert\convert\convert.cpp(101): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\github\cndpost\cppidioms\convert\convert\convert.cpp(104): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\github\cndpost\cppidioms\convert\convert\convert.cpp(107): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\github\cndpost\cppidioms\convert\convert\convert.cpp(110): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\github\cndpost\cppidioms\convert\convert\convert.cpp(113): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\github\cndpost\cppidioms\convert\convert\convert.cpp(116): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\github\cndpost\cppidioms\convert\convert\convert.cpp(119): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\github\cndpost\cppidioms\convert\convert\convert.cpp(122): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\github\cndpost\cppidioms\convert\convert\convert.cpp(125): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\github\cndpost\cppidioms\convert\convert\convert.cpp(130): warning C4305: 'return': truncation from 'double' to 'float'
+c:\github\cndpost\cppidioms\convert\convert\convert.cpp(139): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\github\cndpost\cppidioms\convert\convert\convert.cpp(143): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\github\cndpost\cppidioms\convert\convert\convert.cpp(149): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+c:\github\cndpost\cppidioms\convert\convert\convert.cpp(157): warning C4715: 'convert2': not all control paths return a value
   convert.vcxproj -> C:\github\cndpost\cppidioms\convert\convert\Debug\convert.exe
