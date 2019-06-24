@@ -10,6 +10,8 @@
 // Problem statement: Implementing the 'tail' command seen on Linux.
 //
 // Remaining issues of this version: We still see Segmentation fault at end of execution
+//
+// compiling instruction: g++ --std=c++17 tailcommand.cpp -o tail
 
 
 #include <fstream>
