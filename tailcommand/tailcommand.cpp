@@ -13,6 +13,13 @@
 //
 // compiling instruction: g++ --std=c++17 tailcommand.cpp -o tail
 
+// updates on 6/24/2019
+// the segmentation fault was happening in filesystem::exists() call. It was fixed after upgradimg g++ to 9.0 using 
+// following command:
+//
+//  sudo apt install g++-9
+//  sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 10
+
 
 #include <fstream>
 #include <iostream>

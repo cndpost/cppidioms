@@ -179,6 +179,7 @@ void topk2(char* filename, int K)
 void topk3(char* filename, int K)
 {
     using namespace std;
+    
     namespace fs = std::filesystem;
     fs::path fp {filename};
     if (!fs::exists(fp)) {
@@ -190,7 +191,7 @@ void topk3(char* filename, int K)
 
 //    int top1 = MIN_INT, top2=MIN_INT, top3=MIN_INT;
     int number;
-    int arr[K];
+    int arr[100];
 
     for (int i=0; i<K; i++)
 //      arr[i] = MIN_INT;
@@ -230,12 +231,14 @@ void topk3(char* filename, int K)
     for (int i=0; i<K; i++)
      cout << arr[i] << endl;
 
+    cin >> number;  //debug pause
 }
 
 int main(int argc, char* argv[])
 {
     int K = atoi(argv[2]);
     topk3(argv[1], K);
+    std::cin >> K;  //debug pause.
     return 0;
 }
 
@@ -256,8 +259,8 @@ int main(int argc, char* argv[])
  l = 0 number = 4
  l = 0 number = 5
  l = 0 number = 6
- l = 1 number = 6
-
+ l = 1 number = 6 
+ 
  l = 0 number = 5
  l = 1 number = 4
  l = 2 number = 3
@@ -271,3 +274,9 @@ int main(int argc, char* argv[])
 //
 // topk3 fixed above bug. We check if last read is successful or not before using the data we thought we got from the read.
 // if it failed, the fstrm  >> number will be invalid but the data in number is still good at its last value;
+//
+// the segmentation fault was happening in filesystem::exists() call. It was fixed after upgradimg g++ to 9.0 using 
+// following command:
+//
+//  sudo apt install g++-9
+//  sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-9 10
