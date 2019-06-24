@@ -175,10 +175,65 @@ void topk2(char* filename, int K)
 
 }
 
+void topk3(char* filename, int K)
+{
+    using namespace std;
+    namespace fs = std::filesystem;
+    fs::path fp {filename};
+    if (!fs::exists(fp)) {
+        cout << "file " << filename << " not exist" << endl;
+        return;
+    }
+
+    ifstream fstrm(filename);
+
+//    int top1 = MIN_INT, top2=MIN_INT, top3=MIN_INT;
+    int number;
+    int arr[K];
+
+    for (int i=0; i<K; i++)
+      arr[i] = MIN_INT;
+
+    while (! fstrm.eof()) {
+
+        fstrm >> number;
+        if (!fstrm)
+          break;
+
+        int i = K-1;
+
+        if (number < arr[K-1])
+            break;
+
+        int l =0;
+        for (i = 0; i < K; i++) {
+            if ( number > arr[i]) {
+               l = i;                   //this will fix the uncertainty of value i
+               break;
+            }
+        }
+
+        int j = K-1;
+        for (j=K-1; j>l; j--) {
+            arr[j] = arr[j-1];
+        }
+
+        arr[l] = number;
+
+        cout << " l = " << l << " number = " << number << endl;
+    }
+
+    fstrm.close();
+
+    for (int i=0; i<K; i++)
+     cout << arr[i] << endl;
+
+}
+
 int main(int argc, char* argv[])
 {
     int K = atoi(argv[2]);
-    topk2(argv[1], K);
+    topk3(argv[1], K);
     return 0;
 }
 
@@ -210,3 +265,7 @@ int main(int argc, char* argv[])
  l = 0 number = 0
 
 */
+
+//
+// topk3 fixed above bug. We check if last read is successful or not before using the data we thought we got from the read.
+// if it failed, the fstrm  >> number will be invalid but the data in number is still good at its last value;
