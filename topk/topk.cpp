@@ -175,6 +175,7 @@ void topk2(char* filename, int K)
 
 }
 
+#include <climits>
 void topk3(char* filename, int K)
 {
     using namespace std;
@@ -192,7 +193,8 @@ void topk3(char* filename, int K)
     int arr[K];
 
     for (int i=0; i<K; i++)
-      arr[i] = MIN_INT;
+//      arr[i] = MIN_INT;
+      arr[i] = INT_MIN;
 
     while (! fstrm.eof()) {
 
